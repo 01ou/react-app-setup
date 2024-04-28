@@ -1,0 +1,38 @@
+npx create-react-app my-file-name --template typescript
+
+npm install react-router-dom @types/react-router-dom
+
+npm install @reduxjs/toolkit react-redux
+
+npm install tailwindcss
+npx tailwindcss init
+npm install postcss autoprefixer
+
+postcss.config.js ファイルを作成します。
+    module.exports = {
+    plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+        // 他の必要なプラグインがあればここに追加
+    ],
+    };
+
+TypeScript/React プロジェクトで postcss を使うために、ビルドスクリプトを設定します。package.json 内のスクリプトに以下を追加します。
+    "scripts": {
+    "build:css": "postcss src/styles/tailwind.css -o public/styles/tailwind.css"
+    }
+
+// tailwind.config.js
+module.exports = {
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'], // 未使用のスタイルを削除する設定（後述の内容を追加することで最適化できます）
+  darkMode: false,
+  theme: {
+    extend: {}, 
+  },
+  variants: {
+    extend: {}, 
+  },
+  plugins: [], 
+};
+
+npm run build:css
