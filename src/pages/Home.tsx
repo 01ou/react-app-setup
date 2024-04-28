@@ -1,16 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import SampleCounterComponent from "../components/SampleCounterComponent";
 
-const NotFound: React.FC = () => {
-  return (
-    <div>
-      <h2>404 - Page Not Found</h2>
-      <p>Sorry, the page you are looking for does not exist.</p>
-      <p>
-        Go back to <Link to="/">Home</Link>.
-      </p>
-    </div>
-  );
-};
+const Home: React.FC = () => {
+    return (
+        <div>
+            <div className="text-green-500 text-4xl font-bold">Welcome to App</div>
+            <SampleCounterComponent />
+        </div>
+    )
+}
 
-export default NotFound;
+export default Home;
